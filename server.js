@@ -1,0 +1,14 @@
+import express from "express";
+import { router } from "./controller/empCont.js"
+import { connectDB } from "./repository/empRep.js";
+import "dotenv/config"
+import cors from "cors"
+
+const app= express();
+connectDB()
+app.use(cors())
+app.use(express.json())
+app.use("/api/v1/employee",router)
+app.listen(5000)
+
+
